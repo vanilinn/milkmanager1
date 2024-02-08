@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    MilkManager
+{% endblock %}
+
+
+{% block content %}
+    <h1>Заполненность канистр:</h1>
+    <ul>
+        {% for cistern in cisterns %}
+            <li id="{{cistern.name}}">{{ cistern.name }} - {{ cistern.current_volume }}L / {{ cistern.volume }}L</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Форма для заливки молока:</h2>
+    {% include 'milkinfo/form.html' %}
+
+    <div id="fillMessage"></div>
+
+    <h3>История залива:</h3>
+    <ul>
+        {% for entry in fill_history %}
+            <li>{{ entry.filler_name }} - {{ entry.filled_volume }}L - {{ entry.cistern.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
