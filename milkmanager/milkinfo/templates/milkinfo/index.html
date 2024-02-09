@@ -7,22 +7,27 @@
 
 
 {% block content %}
-    <h1>Заполненность канистр:</h1>
+<div class="center1">
+    <h2>Заполненность цистерн:</h2>
     <ul>
         {% for cistern in cisterns %}
-            <li id="{{cistern.name}}">{{ cistern.name }} - {{ cistern.current_volume }}L / {{ cistern.volume }}L</li>
+            <li id="{{cistern.name}}">{{ cistern.name }} заполнена на {{ cistern.current_volume }} л. из {{ cistern.volume }} л.</li>
         {% endfor %}
     </ul>
-
+</div>
+<div class="center1">
     <h2>Форма для заливки молока:</h2>
+    <br>
     {% include 'milkinfo/form.html' %}
 
     <div id="fillMessage"></div>
-
-    <h3>История залива:</h3>
-    <ul>
+</div>
+<div class="center1">
+    <h2>История залива:</h2>
+    <ul id="fill_history_table">
         {% for entry in fill_history %}
-            <li>{{ entry.filler_name }} - {{ entry.filled_volume }}L - {{ entry.cistern.name }}</li>
+            <li>{{ entry.filler_name }} залил {{ entry.filled_volume }} л. в  {{ entry.cistern.name }}</li>
         {% endfor %}
     </ul>
+</div>
 {% endblock %}
