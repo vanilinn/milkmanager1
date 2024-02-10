@@ -20,7 +20,7 @@ $(document).ready(function () {
                     //console.log('send message ->', response.cistern_name);
                     $('#fillMessage').text('Молоко успешно налито');
                     //перерисовываем цистерну и добавляем в историю запись
-                    $(`#${response.cistern_name}`).text(response.cistern_name + ' заполнена на  ' + response.cistern_volume + ' л. из 300 л.');
+                    $(`#${response.cistern_id}`).text(response.cistern_name + ' заполнена на  ' + response.cistern_volume + ' л. из 300 л.');
                     $('#fill_history_table').append('<li>' + response.name + ' залил ' + response.milk_filled + ' л. в ' + response.cistern_name + '</li>');
                     form.trigger('reset');
                 } else {

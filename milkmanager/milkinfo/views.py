@@ -23,7 +23,7 @@ def fill_milk(request):
             cistern.save()
             # сохраняем запись о заливке
             FillHistory.objects.create(cistern=cistern, filler_name=name, filled_volume=volume)
-            return JsonResponse({'success': True, 'cistern_name': cistern.name, 'cistern_volume': cistern.current_volume,
+            return JsonResponse({'success': True, 'cistern_id': cistern.id, 'cistern_name': cistern.name, 'cistern_volume': cistern.current_volume,
                                  'milk_filled': volume, 'name': name})
         else:
             return JsonResponse(

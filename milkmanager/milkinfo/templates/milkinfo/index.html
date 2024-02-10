@@ -11,7 +11,7 @@
     <h2>Заполненность цистерн:</h2>
     <ul>
         {% for cistern in cisterns %}
-            <li id="{{cistern.name}}">{{ cistern.name }} заполнена на {{ cistern.current_volume }} л. из {{ cistern.volume }} л.</li>
+            <li id="{{cistern.id}}">{{ cistern.name }} заполнена на {{ cistern.current_volume }} л. из {{ cistern.volume }} л.</li>
         {% endfor %}
     </ul>
 </div>

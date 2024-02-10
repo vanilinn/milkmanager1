@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Cistern(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     volume = models.IntegerField(default=300)
     current_volume = models.IntegerField(default=0)
